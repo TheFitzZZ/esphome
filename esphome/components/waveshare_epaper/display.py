@@ -13,6 +13,7 @@ from esphome.const import (
     CONF_RESET_DURATION,
     CONF_RESET_PIN,
 )
+from esphome.const import __version__ as ESPHOME_VERSION
 
 DEPENDENCIES = ["spi"]
 
@@ -132,7 +133,8 @@ async def to_code(config):
     else:
         raise NotImplementedError()
 
-    await cg.register_component(var, config)
+    if cv.Version.parse(ESPHOME_VERSION) < cv.Version.parse("2023.12.0"):
+        await cg.register_component(var, config)
     await display.register_display(var, config)
     await spi.register_spi_device(var, config)
 
