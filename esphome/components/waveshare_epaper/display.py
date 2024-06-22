@@ -4,6 +4,7 @@ from esphome import pins
 from esphome.components import display, spi
 from esphome.const import CONF_BUSY_PIN, CONF_DC_PIN, CONF_FULL_UPDATE_EVERY, \
     CONF_ID, CONF_LAMBDA, CONF_MODEL, CONF_PAGES, CONF_RESET_PIN
+from esphome.const import __version__ as ESPHOME_VERSION
 
 DEPENDENCIES = ['spi']
 
